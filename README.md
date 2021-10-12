@@ -1,7 +1,7 @@
 # layout
 lite android layout for chromium
 
-include linearlayout and relativelayout
+include linear layout and relative layout
 
 If you are familiar with android, it is easy to get started
 
