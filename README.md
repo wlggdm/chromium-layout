@@ -7,7 +7,7 @@ If you are familiar with android, it is easy to get started
 
 # using layout
 
-First you need write a layout xml file like this
+* First you need write a layout xml file like this
 
 ```c
 <?xml version="1.0" encoding="utf-8"?>
@@ -48,7 +48,7 @@ First you need write a layout xml file like this
 ```
 you can find a xml example named 1.xml in project folder
 
-Second load xml resource to initial views
+* Second load xml resource to initial views
 ```c
 ui::ResourceBundle& rb = ui::ResourceBundle::GetSharedInstance();
 View* v = Layout::LayoutBuild(rb.LoadDataResourceString(IDR_LAYOUT_1_XML));
