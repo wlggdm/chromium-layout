@@ -55,6 +55,17 @@ View* v = Layout::LayoutBuild(rb.LoadDataResourceString(IDR_LAYOUT_1_XML));
 AddChildView(v);
 SetUseDefaultFillLayout(true);
 ```
+* Third you can use the generated id file to get view
+```c
+namespace R::id { 
+
+constexpr int Middle                    = 0x7F0F0000;
+constexpr int Right                     = 0x7F0F0001;
+constexpr int Top                       = 0x7F0F0002;
+
+} //namespace R::id
+```
+
 # Effect
 ![image](https://user-images.githubusercontent.com/11361001/136934718-dc2fe55f-16d5-45e6-92b3-2d19a1b1549d.png)
 
