@@ -109,16 +109,3 @@ views::View* LayoutBuild(const std::string& resource) {
 }
 
 }  // namespace Layout
-
-/*
-   LayoutParams     View               LayoutManager
-   LayoutParams     |_____View
-   LayoutParams     |_____View         LayoutManager
-   LayoutParams           |_____View 
-
-   match_parent    exactly
-   100             exactly
-
-   wrap_content    wrap_content
-   relative        
-*/
