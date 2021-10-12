@@ -57,6 +57,7 @@ SetUseDefaultFillLayout(true);
 ```
 * Third you can use the generated id file to get view
 ```c
+//layout_id.h
 namespace R::id { 
 
 constexpr int Middle                    = 0x7F0F0000;
