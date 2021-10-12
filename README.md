@@ -56,7 +56,8 @@ AddChildView(v);
 SetUseDefaultFillLayout(true);
 ```
 # Effect
-![image](https://user-images.githubusercontent.com/11361001/136934357-b4a7b303-f1e8-46a8-b767-2c96afdb6482.png)
+![image](https://user-images.githubusercontent.com/11361001/136934469-f4286aae-5834-413e-b371-ab4f60589ab8.png)
+
 
 # Requirements
 * chromium 90+
