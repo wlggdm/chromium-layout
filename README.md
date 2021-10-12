@@ -55,7 +55,8 @@ View* v = Layout::LayoutBuild(rb.LoadDataResourceString(IDR_LAYOUT_1_XML));
 AddChildView(v);
 SetUseDefaultFillLayout(true);
 ```
-![image](https://user-images.githubusercontent.com/11361001/136934033-a9cbd0e8-24f1-411d-b8a2-dc2bd7c13df2.png)
+# Effect
+![image](https://user-images.githubusercontent.com/11361001/136934357-b4a7b303-f1e8-46a8-b767-2c96afdb6482.png)
 
 # Requirements
 * chromium 90+
