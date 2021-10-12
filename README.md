@@ -5,7 +5,7 @@ include linear layout and relative layout
 
 If you are familiar with android, it is easy to get started
 
-However, this is just a preliminary framework for the layout. If you want to use it in depth, you need to be familiar with the code and extend it.
+However, this is just a basic framework for the layout. If you want to use it in depth, you need to be familiar with the code and extend it.
 
 # using layout
 
