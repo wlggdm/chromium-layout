@@ -1,113 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<RelativeLayout id="@+id/root"
     layout_width="match_parent"
     layout_height="match_parent">
-    
     <Button id="@+id/top"
-          layout_width="wrap_content"
-          layout_height="wrap_content"
-          layout_margin_top="20"
-          layout_left_left="parent"
+          layout_width="0"
+          layout_height="100"
+          layout_left_right="@id/left"
           layout_right_right="parent"
           layout_top_top="parent"
-          text="relatvie up"/>
+          text="top"/>
+     <Button id="@+id/right"
+          layout_width="100"
+          layout_top_bottom="@id/top"
+          layout_right_right="parent"
+          layout_bottom_bottom="parent"
+          text="right"/>
+     <Button id="@+id/bottom"
+          layout_height="100"
+          layout_left_left="parent"
+          layout_right_left="@id/right"
+          layout_bottom_bottom="parent"
+          text="bottom"/>
+     <Button id="@+id/left"
+          layout_width="100"
+          layout_left_left="parent"
+          layout_top_top="parent"
+          layout_bottom_top="@id/bottom"
+          text="left"/>
           
      <Button id="@+id/middle"
-          layout_width="wrap_content"
+          layout_width="100"
           layout_height="100"
-          layout_margin_top="20"
-          layout_left_left="@id/top"
-          layout_right_right="@id/top"
+          layout_left_right="@id/left"
+          layout_right_left="@id/right"
           layout_top_bottom="@id/top"
-          layout_padding_left="20"
-          layout_padding_right="20"
-          text="relatvie middle"/>
+          layout_bottom_top="@id/bottom"
+          text="middle"/>
           
-     <Button id="@+id/right"
-          layout_width="wrap_content"
-          layout_height="wrap_content"
-          layout_margin_top="20"
-          layout_left_right="@id/middle"
-          layout_right_right="parent"
-          layout_top_top="@id/middle"
-          layout_bottom_bottom="@id/middle"
-          text="relative right"/>
-    
-    <RelativeLayout
-        layout_width="wrap_content"
-        layout_height="wrap_content"
-        layout_margin_top="20"
-        layout_top_top="@id/middle"
-        layout_bottom_bottom="@id/middle"
-        layout_left_left="parent"
-        layout_right_left="@id/middle"
-        layout_padding_left="20"
-        layout_padding_right="20">
-        
-        <Button id="@+id/mm"
-          layout_width="wrap_content"
-          layout_height="wrap_content"
-          layout_margin_top="20"
-          layout_left_left="parent"
-          layout_top_top="parent"
-          text="relative left"/>
-          
-        <Button id="@+id/nn"
-          layout_width="wrap_content"
-          layout_height="wrap_content"
-          layout_left_left="parent"
-          layout_right_right="parent"
-          layout_top_bottom="@id/mm"
-          text="relative down"/>
-    </RelativeLayout>
-    
-    <LinearLayout 
+    <LinearLayout id="@+id/east"
           layout_width="0"
           layout_height="wrap_content"
-          layout_left_left="parent"
-          layout_right_right="parent"
-          layout_top_bottom="@id/middle"
-          layout_bottom_bottom="parent"
-          layout_padding_left="100"
-          layout_padding_right="100"
-          layout_orientation="vertical"
-          layout_gravity="center">
-          
-        <Button layout_width="200"
-            layout_height="50"
-            gravity="center"
-            text="linear layout up"/>
-            
-        <Button layout_width="match_parent"
-            layout_height="100"
-            gravity="center"
-            text="linear layout middle"/>
-            
-        <Button layout_width="100"
-            layout_height="wrap_content"
-            text="linear layout down"/>
-
-        <LinearLayout 
-              layout_width="match_parent"
-              layout_height="wrap_content"
-              layout_orientation="horizontal"
-              layout_gravity="center">
-            <Button layout_height="match_parent"
-               layout_weight="4"
-               gravity="center"
-               text="linear layout left weight"/>
-            
-            <Button layout_width="80"
-               layout_height="50"
-               gravity="center"
-               text="linear layout middle"/>
-               
-            <Button layout_height="100"
-               layout_weight="4"   
-               gravity="center"
-               text="linear layout right weight"/>
-        </LinearLayout>
-        
+          layout_left_right="@id/left"
+          layout_right_left="@id/middle"
+          layout_top_top="@id/middle"
+          layout_bottom_bottom="@id/middle"
+          layout_orientation="horizontal">
+          <Button layout_weight="1"
+             layout_height="100"
+             text="1"/>
+          <Button layout_weight="1"
+             layout_height="100"
+             text="2"/>   
+          <Button layout_weight="1"
+             layout_height="100"
+             text="3"/>
     </LinearLayout>
-  
+          
+    <LinearLayout id="@+id/north"
+          layout_width="wrap_content"
+          layout_height="0"
+          layout_left_left="@id/middle"
+          layout_right_right="@id/middle"
+          layout_top_bottom="@id/top"
+          layout_bottom_top="@id/middle"
+          layout_orientation="vertical">
+          <Button layout_weight="1"
+             layout_width="100"
+             text="1"/>
+          <Button layout_weight="1"
+             layout_width="100"
+             text="2"/>   
+          <Button layout_weight="1"
+             layout_width="100"
+             text="3"/>
+    </LinearLayout>
+
+    <LinearLayout id="@+id/west"
+          layout_width="0"
+          layout_height="wrap_content"
+          layout_left_right="@id/middle"
+          layout_right_left="@id/right"
+          layout_top_top="@id/middle"
+          layout_bottom_bottom="@id/middle"
+          layout_orientation="horizontal">
+          <Button layout_weight="1"
+             layout_height="100"
+             text="1"/>
+          <Button layout_weight="1"
+             layout_height="100"
+             text="2"/>   
+          <Button layout_weight="1"
+             layout_height="100"
+             text="3"/>
+    </LinearLayout>
+    
+    <LinearLayout id="@+id/south"
+          layout_width="wrap_content"
+          layout_height="0"
+          layout_left_left="@id/middle"
+          layout_right_right="@id/middle"
+          layout_top_bottom="@id/middle"
+          layout_bottom_top="@id/bottom"
+          layout_orientation="vertical">
+          <Button layout_weight="1"
+             layout_width="100"
+             text="1"/>
+          <Button layout_weight="1"
+             layout_width="100"
+             text="2"/>   
+          <Button layout_weight="1"
+             layout_width="100"
+             text="3"/>
+    </LinearLayout>
+    
+    <Button
+          layout_width="150"
+          layout_height="50"
+          layout_left_right="@id/left"
+          layout_top_bottom="@id/top"
+          layout_right_left="@id/north"
+          layout_bottom_top="@id/east"
+          text="left top"/>
+
+    <Button
+          layout_width="150"
+          layout_height="50"
+          layout_left_right="@id/north"
+          layout_top_bottom="@id/top"
+          layout_right_left="@id/right"
+          layout_bottom_top="@id/west"
+          text="right top"/>
+    
+    <Button
+          layout_width="150"
+          layout_height="50"
+          layout_left_right="@id/south"
+          layout_top_bottom="@id/west"
+          layout_right_left="@id/right"
+          layout_bottom_top="@id/bottom"
+          text="right bottom"/>
+    
+    <Button
+          layout_width="150"
+          layout_height="50"
+          layout_left_right="@id/left"
+          layout_top_bottom="@id/east"
+          layout_right_left="@id/south"
+          layout_bottom_top="@id/bottom"
+          text="left bottom"/>
+          
 </RelativeLayout>
