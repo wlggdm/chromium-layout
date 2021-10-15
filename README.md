@@ -16,7 +16,7 @@ However, this is just a basic framework for the layout. If you want to use it in
 <RelativeLayout id="@+id/root"
     layout_width="match_parent"
     layout_height="match_parent">
-    <Button id="@+id/top"
+     <Button id="@+id/top"
           layout_width="0"
           layout_height="100"
           layout_left_right="@id/left"
@@ -66,9 +66,11 @@ SetUseDefaultFillLayout(true);
 //layout_id.h
 namespace R::id { 
 
-constexpr int Middle                    = 0x7F0F0000;
+constexpr int Left                      = 0x7F0F0000;
 constexpr int Right                     = 0x7F0F0001;
 constexpr int Top                       = 0x7F0F0002;
+constexpr int Bottom                    = 0x7F0F0003;
+constexpr int Middle                    = 0x7F0F0004;
 
 } //namespace R::id
 ```
