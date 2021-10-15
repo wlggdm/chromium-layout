@@ -72,7 +72,7 @@ constexpr int Top                       = 0x7F0F0002;
 # Effect
 sources/res/1.xml
 
-![image](https://user-images.githubusercontent.com/11361001/136934718-dc2fe55f-16d5-45e6-92b3-2d19a1b1549d.png)
+![image](https://user-images.githubusercontent.com/11361001/137422245-15cac355-97e6-49a8-925c-24af6fd93285.png)
 
 # Requirements
 * chromium 90+
