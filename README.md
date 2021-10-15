@@ -13,39 +13,43 @@ However, this is just a basic framework for the layout. If you want to use it in
 
 ```c
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<RelativeLayout id="@+id/root"
     layout_width="match_parent"
     layout_height="match_parent">
-    
     <Button id="@+id/top"
-          layout_width="wrap_content"
-          layout_height="wrap_content"
-          layout_margin_top="20"
-          layout_left_left="parent"
+          layout_width="0"
+          layout_height="100"
+          layout_left_right="@id/left"
           layout_right_right="parent"
           layout_top_top="parent"
-          text="relatvie up"/>
+          text="top"/>
+     <Button id="@+id/right"
+          layout_width="100"
+          layout_top_bottom="@id/top"
+          layout_right_right="parent"
+          layout_bottom_bottom="parent"
+          text="right"/>
+     <Button id="@+id/bottom"
+          layout_height="100"
+          layout_left_left="parent"
+          layout_right_left="@id/right"
+          layout_bottom_bottom="parent"
+          text="bottom"/>
+     <Button id="@+id/left"
+          layout_width="100"
+          layout_left_left="parent"
+          layout_top_top="parent"
+          layout_bottom_top="@id/bottom"
+          text="left"/>
           
      <Button id="@+id/middle"
-          layout_width="wrap_content"
+          layout_width="100"
           layout_height="100"
-          layout_margin_top="20"
-          layout_left_left="@id/top"
-          layout_right_right="@id/top"
+          layout_left_right="@id/left"
+          layout_right_left="@id/right"
           layout_top_bottom="@id/top"
-          layout_padding_left="20"
-          layout_padding_right="20"
-          text="relatvie middle"/>
-          
-     <Button id="@+id/right"
-          layout_width="wrap_content"
-          layout_height="wrap_content"
-          layout_margin_top="20"
-          layout_left_right="@id/middle"
-          layout_right_right="parent"
-          layout_top_top="@id/middle"
-          layout_bottom_bottom="@id/middle"
-          text="relative right"/>
+          layout_bottom_top="@id/bottom"
+          text="middle"/>
 </RelativeLayout>
 ```
 you can find a xml example named 1.xml in project folder
