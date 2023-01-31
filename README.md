@@ -1,11 +1,6 @@
-# layout
-lite android layout for chromium
+# relative layout
 
-include linear layout and relative layout
-
-If you are familiar with android, it is easy to get started
-
-However, this is just a basic framework for the layout. If you want to use it in depth, you need to be familiar with the code and extend it.
+relative layout for chromium ui layout
 
 # using layout
 
@@ -13,7 +8,7 @@ However, this is just a basic framework for the layout. If you want to use it in
 
 ```c
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout id="@+id/root"
+<RelativeView id="@+id/root"
     layout_width="match_parent"
     layout_height="match_parent">
      <Button id="@+id/top"
@@ -50,7 +45,7 @@ However, this is just a basic framework for the layout. If you want to use it in
           layout_top_bottom="@id/top"
           layout_bottom_top="@id/bottom"
           text="middle"/>
-</RelativeLayout>
+</RelativeView>
 ```
 you can find a xml example named 1.xml in project folder
 
