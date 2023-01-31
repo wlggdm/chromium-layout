@@ -1,0 +1,24 @@
+# Copyright 2014 The Chromium Authors
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+
+source_set("layout") {
+  sources = [
+    "layout_builder.cc",
+    "layout_builder.h",
+    "layout_manager_base.cc",
+    "layout_manager_base.h",
+    "layout_metadata_impl_macros.h",
+    "layout_params.cc",
+    "layout_params.h",
+    "relative_layout.cc",
+    "relative_layout.h",
+  ]
+
+  deps = [
+    "//base",
+    "//ui/views",
+    "//third_party/expat",
+  ]
+}
