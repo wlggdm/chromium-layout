@@ -1,0 +1,44 @@
+template("layout_process") {
+  process_only = defined(invoker.process_only) && invoker.process_only
+
+  if (process_only) {
+    action_name = target_name
+  } else {
+    action_name = target_name + "_action"
+    source_set_name = target_name
+  }
+
+  output_file = invoker.output
+
+  action(action_name) {
+    script = "./layout_process.py"
+    inputs =  invoker.inputs
+    outputs = [ invoker.output ]
+
+    response_file_contents = rebase_path(inputs, root_build_dir)
+
+    args = [
+      "--file-list={{response_file_name}}",
+      "--output",
+      rebase_path(output_file, root_build_dir),  
+    ]
+
+    if (process_only) {
+      forward_variables_from(invoker, [ "visibility" ])
+    } else {
+      visibility = [ ":$source_set_name" ]
+    }
+  }
+
+  if (!process_only) {
+    source_set(source_set_name) {
+      forward_variables_from(invoker,
+                             [
+                               "visibility",
+                               "deps",
+                             ])
+      sources = get_target_outputs(":$action_name")
+      public_deps = [ ":$action_name" ]
+    }
+  }
+}

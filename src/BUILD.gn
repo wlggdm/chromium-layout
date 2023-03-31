@@ -1,0 +1,67 @@
+import("./layout_process.gni")
+import("//ui/webui/resources/tools/generate_grd.gni")
+import("//tools/grit/repack.gni")
+
+layout_process("script_process") {
+  inputs = [
+    "1.xml",
+    "2.xml",
+  ]
+
+  output = "$target_gen_dir/id.h"
+}
+
+generate_grd("layout_generate_grd") {
+  grd_prefix = "layout"
+  out_grd = "$target_gen_dir/${grd_prefix}_generated_resources.grd"
+  deps = [ ":script_process" ]
+  
+  input_files_base_dir = rebase_path(target_gen_dir, root_build_dir)
+  input_files = [
+    "1.xml",
+    "2.xml"
+  ]
+}
+
+grit("layout_resources_grd") {
+  testonly = true
+  source = "$target_gen_dir/layout_generated_resources.grd"
+  outputs = [
+    "grit/layout_resources.h",
+    "grit/layout_resources_map.h",
+    "grit/layout_resources_map.cc",
+    "layout_resources.pak",
+  ]
+  
+  deps = [ ":layout_generate_grd" ]
+}
+
+copy("layout_resources_pak") {
+  testonly = true
+  sources = [ "$target_gen_dir/layout_resources.pak" ]
+  outputs = [ "$root_out_dir/layout_resources.pak" ]
+  public_deps = [ ":layout_resources_grd" ]
+}
+
+source_set("layout") {
+  testonly = true
+
+  sources = [
+    "layout_builder.cc",
+    "layout_builder.h",
+    "layout_manager_base.cc",
+    "layout_manager_base.h",
+    "layout_metadata_impl_macros.h",
+    "layout_params.cc",
+    "layout_params.h",
+    "relative_layout.cc",
+    "relative_layout.h",
+  ]
+
+  deps = [
+    ":layout_resources_pak",
+    "//base",
+    "//ui/views",
+    "//third_party/expat",
+  ]
+}

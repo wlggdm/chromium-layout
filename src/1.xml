@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeView>
+   <views::LabelButton 
+        ID="@+id/left" 
+        layout_width="wrap_content" 
+        layout_left_to_left="parent"
+        layout_top_to_top="parent" 
+        layout_bottom_to_top="@id/bottom" 
+        Text="left"/>
+    <views::LabelButton ID="@+id/top" 
+        layout_height="wrap_content"
+        layout_left_to_right="@id/left"
+        layout_top_to_top="parent" 
+        layout_right_to_right="parent" 
+        Text="top"
+        LineHeight="30"
+        HorizontalAlignment="ALIGN_CENTER"
+        MultiLine="true"/>
+    <views::LabelButton ID="@+id/right" 
+        layout_width="wrap_content"
+        layout_right_to_right="parent"
+        layout_top_to_bottom="@id/top" 
+        layout_bottom_to_bottom="parent" 
+        Text="right"/>
+    <views::LabelButton ID="@+id/bottom" 
+        layout_height="wrap_content"
+        layout_left_to_left="parent"
+        layout_right_to_left="@id/right" 
+        layout_bottom_to_bottom="parent" 
+        Text="bottom"
+        LineHeight="30"
+        HorizontalAlignment="ALIGN_CENTER"
+        MultiLine="true"/>
+    <views::BoxLayoutView ID="@+id/middle"
+        layout_height="wrap_content"
+        Orientation="kHorizontal"
+        DefaultFlex="1"
+        InsideBorderInsets="5,5,5,5"
+        BetweenChildSpacing="5"
+        layout_left_to_right="@id/left"
+        layout_right_to_left="@id/right"
+        layout_top_to_bottom="@id/top" 
+        layout_bottom_to_top="@id/bottom">
+        <views::Label Text="1"/>
+        <views::Label Text="2"/>
+        <views::Label Text="3"/>
+    </views::BoxLayoutView>
+</RelativeView>

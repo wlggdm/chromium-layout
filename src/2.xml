@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeView>
+    <views::Label ID="@+id/icon"
+        layout_width="wrap_content"
+        layout_height="wrap_content"
+        layout_left_to_left="parent"
+        layout_top_to_top="parent"
+        layout_margin="0,10,0,10"
+        Text="Icon"
+        LineHeight="30"/>
+    <views::Label ID="@+id/title"
+        layout_height="wrap_content"
+        layout_left_to_right="@id/icon"
+        layout_top_to_top="parent"
+        layout_right_to_left="@id/close"
+        Text="Title"
+        LineHeight="30"
+        HorizontalAlignment="ALIGN_LEFT"/>
+    <views::LabelButton ID="@+id/close"
+        layout_width="wrap_content"
+        layout_height="wrap_content"
+        layout_top_to_top="parent"
+        layout_right_to_right="parent"
+        layout_margin="0,10,0,0"
+        Text="Close"
+        LineHeight="30"/>
+    <views::Label ID="@+id/content"
+        layout_width="wrap_content"
+        layout_height="wrap_content"
+        layout_left_to_left="@id/title"
+        layout_top_to_bottom="@id/title"
+        layout_bottom_to_top="@id/ok"
+        Text="message ..."
+        LineHeight="30"/>
+    <views::LabelButton ID="@+id/ok"
+        layout_width="wrap_content"
+        layout_height="wrap_content"
+        layout_right_to_right="parent"
+        layout_bottom_to_bottom="parent"
+        Text="Ok"
+        LineHeight="30"/>
+</RelativeView>
