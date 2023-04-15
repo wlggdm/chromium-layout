@@ -29,18 +29,18 @@ void RegisterViewBuilder(const std::string& key, ViewBuilder view_builder);
 
 std::unique_ptr<views::View> Build(const std::string& content);
 
-#define _REGISTER_NAMESPACE_CLASS_(class_name, namespace_name)   \
-  Layout::RegisterViewBuilder(                                   \
-      #namespace_name "::" #class_name,                          \
-      base::BindRepeating([]() -> std::unique_ptr<views::View> { \
-        return std::make_unique<namespace_name::class_name>();   \
-      }))
-
 #define _REGISTER_CLASS_(class_name)                                          \
+  static_assert(std::is_constructible_v<class_name>,                          \
+                "class need default constructor");                            \
+  static_assert(std::is_base_of_v<views::View, class_name>,                   \
+                "class need derived from View");                              \
   Layout::RegisterViewBuilder(                                                \
       #class_name, base::BindRepeating([]() -> std::unique_ptr<views::View> { \
         return std::make_unique<class_name>();                                \
       }))
+
+#define _REGISTER_NAMESPACE_CLASS_(class_name, namespace_name) \
+  _REGISTER_CLASS_(namespace_name::class_name)
 
 #define _GET_LAYOUT_MACRO_NAME(_1, _2, NAME, ...) NAME
 
