@@ -4,7 +4,14 @@ relative layout for chromium ui layout
 
 # using layout
 
-* First you need write a layout xml file like this
+1. Register view for  layout builder
+
+```c
+REGISTER_LAYOUT_CONTROL(View, views);
+REGISTER_LAYOUT_CONTROL(View);
+```
+
+2. Write a layout xml file like this
 
 ```c
 <?xml version="1.0" encoding="utf-8"?>
@@ -46,14 +53,17 @@ relative layout for chromium ui layout
 ```
 you can find a xml example named 1.xml in project folder
 
-* Second load xml resource to initial views
+3. Load xml resource to build views
+
 ```c
 SetUseDefaultFillLayout(true);
 ui::ResourceBundle& rb = ui::ResourceBundle::GetSharedInstance();
 View* v = Layout::Build(rb.LoadDataResourceString(IDR_LAYOUT_1_XML));
 AddChildView(v);
 ```
-* Third you can use the generated id file to get view
+
+4. Use the generated id file to get view
+
 ```c
 //layout_id.h
 namespace R::id { 
@@ -68,7 +78,6 @@ constexpr int Middle                    = 0x7F0F0004;
 ```
 
 # Effect
-sources/res/1.xml
 
 ![image](https://user-images.githubusercontent.com/11361001/137422245-15cac355-97e6-49a8-925c-24af6fd93285.png)
 
