@@ -90,7 +90,7 @@ std::unique_ptr<views::View> Build(const std::string& content) {
   XML_SetUserData(parser.get(), &xml_recursive);
   XML_SetElementHandler(parser.get(), StartElement, EndElement);
 
-  if (XML_Parse(parser.get(), content.c_str(), content.size(), 1) ==
+  if (XML_Parse(parser.get(), content.c_str(), content.size(), XML_TRUE) ==
       XML_STATUS_ERROR)
     return nullptr;
 
