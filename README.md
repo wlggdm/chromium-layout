@@ -50,7 +50,7 @@ you can find a xml example named 1.xml in project folder
 ```c
 SetUseDefaultFillLayout(true);
 ui::ResourceBundle& rb = ui::ResourceBundle::GetSharedInstance();
-View* v = Layout::CreateView(rb.LoadDataResourceString(IDR_LAYOUT_1_XML));
+View* v = Layout::Build(rb.LoadDataResourceString(IDR_LAYOUT_1_XML));
 AddChildView(v);
 ```
 * Third you can use the generated id file to get view
