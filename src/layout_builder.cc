@@ -2,8 +2,8 @@
 
 #include "layout_params.h"
 
-#include <stack>
 #include <map>
+#include <stack>
 
 #include "base/memory/ptr_util.h"
 #include "base/strings/utf_string_conversions.h"
@@ -11,8 +11,9 @@
 #include "ui/views/layout/layout_manager.h"
 #include "ui/views/view.h"
 
+namespace Layout {
 namespace {
-std::map<std::string, Layout::ViewBuilder*> viewbuilder_map;
+std::map<std::string, ViewBuilder> viewbuilder_map;
 
 struct ScopedPtrXMlParser {
   void operator()(XML_Parser parser) const { XML_ParserFree(parser); }
@@ -20,17 +21,11 @@ struct ScopedPtrXMlParser {
 
 using XML_ParserPtr =
     std::unique_ptr<std::remove_pointer_t<XML_Parser>, ScopedPtrXMlParser>;
-}  // namespace
-
-namespace Layout {
-void RegisterViewBuilder(const std::string& key, ViewBuilder* view_builder) {
-  viewbuilder_map[key] = view_builder;
-}
 
 std::unique_ptr<views::View> CreateView(const std::string& class_name) {
   auto iter = viewbuilder_map.find(class_name);
   if (iter != viewbuilder_map.end())
-    return iter->second->Build();
+    return iter->second.Run();
 
   return nullptr;
 }
@@ -80,6 +75,11 @@ void StartElement(void* userData, const XML_Char* name, const XML_Char** atts) {
 void EndElement(void* userData, const XML_Char* name) {
   XMLRecursive* xml_recursive = reinterpret_cast<XMLRecursive*>(userData);
   xml_recursive->EndElement(name);
+}
+}  // namespace
+
+void RegisterViewBuilder(const std::string& key, ViewBuilder view_builder) {
+  viewbuilder_map[key] = std::move(view_builder);
 }
 
 std::unique_ptr<views::View> Build(const std::string& content) {
